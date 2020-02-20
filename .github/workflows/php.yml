@@ -12,12 +12,15 @@ jobs:
 
     - name: unit
       run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
+          - bin/phpunit test/Unit
 
     - name: integration
       run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
+          - bin/phpunit test/Integration
 
     - name: functionnal
       run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
+          -php vendor/bin/
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
