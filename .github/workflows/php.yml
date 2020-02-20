@@ -11,22 +11,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: unit
-      run: 
-        - apt update && apt install -y git
-        - curl --show-error --silent https://getcomposer.org/installer | php
-        - php bin/composer.phar install --no-scripts --no-progress
+      run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
 
     - name: integration
-      run: 
-        - apt update && apt install -y git
-        - curl --show-error --silent https://getcomposer.org/installer | php
-        - php bin/composer.phar install --no-scripts --no-progress
+      run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
 
     - name: functionnal
-      run: 
-        - apt update && apt install -y git
-        - curl --show-error --silent https://getcomposer.org/installer | php
-        - php bin/composer.phar install --no-scripts --no-progress
+      run: apt update && apt install -y git && curl --show-error --silent https://getcomposer.org/installer | php && php bin/composer.phar install --no-scripts --no-progress
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
