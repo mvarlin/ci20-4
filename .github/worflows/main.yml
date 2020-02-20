@@ -10,12 +10,23 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate
+    - name: unit
+      run: 
+        - apt update && apt install -y git
+        - curl --show-error --silent https://getcomposer.org/installer | php
+        - php bin/composer.phar install --no-scripts --no-progress
 
-    - name: Install dependencies
-      run: composer install --no-progress --no-suggest
+    - name: integration
+      run: 
+        - apt update && apt install -y git
+        - curl --show-error --silent https://getcomposer.org/installer | php
+        - php bin/composer.phar install --no-scripts --no-progress
 
+    - name: functionnal
+      run: 
+        - apt update && apt install -y git
+        - curl --show-error --silent https://getcomposer.org/installer | php
+        - php bin/composer.phar install --no-scripts --no-progress
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
